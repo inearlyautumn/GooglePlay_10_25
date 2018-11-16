@@ -3,6 +3,7 @@ package com.example.googleplay_10_25;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -11,6 +12,8 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import com.example.googleplay_10_25.adapter.MainaPagerAdapter;
+import com.example.googleplay_10_25.fragment.BaseFragment;
+import com.example.googleplay_10_25.fragment.FragmentFactory;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -63,6 +66,16 @@ public class MainActivity extends AppCompatActivity {
 
         viewPager.setAdapter(new MainaPagerAdapter(getSupportFragmentManager()));
         tabLayout.setupWithViewPager(viewPager);
+
+        viewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener(){
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+                BaseFragment createFragment = FragmentFactory.createFragment(position);
+                createFragment.show(); // 当切换界面的时候 重新请求服务器
+
+            }
+        });
     }
 
     @Override

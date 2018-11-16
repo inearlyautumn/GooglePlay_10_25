@@ -1,7 +1,10 @@
 package com.example.googleplay_10_25.http.api;
 
+import com.example.googleplay_10_25.bean.AppInfo;
 import com.example.googleplay_10_25.bean.Home;
 import com.example.googleplay_10_25.global.Constant;
+
+import java.util.List;
 
 import io.reactivex.Observable;
 import retrofit2.Retrofit;
@@ -35,4 +38,10 @@ public class GooglePalyApi {
     public Observable<Home> getHomeData(String index) {
         return service.getHomeData(index);
     }
+
+    public Observable<List<AppInfo>> getAppData(String index) {
+        return service.getAppData(index);
+    }
+
+
 }

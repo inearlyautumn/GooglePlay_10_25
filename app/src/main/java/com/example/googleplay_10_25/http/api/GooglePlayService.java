@@ -1,6 +1,9 @@
 package com.example.googleplay_10_25.http.api;
 
+import com.example.googleplay_10_25.bean.AppInfo;
 import com.example.googleplay_10_25.bean.Home;
+
+import java.util.List;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
@@ -10,4 +13,7 @@ public interface GooglePlayService {
 
     @GET("home")
     Observable<Home> getHomeData(@Query("index") String index);
+
+    @GET("app")
+    Observable<List<AppInfo>> getAppData(@Query("index") String index);
 }

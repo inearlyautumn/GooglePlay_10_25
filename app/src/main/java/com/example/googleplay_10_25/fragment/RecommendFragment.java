@@ -9,12 +9,17 @@ import android.view.ViewGroup;
 
 import com.example.googleplay_10_25.R;
 
-class RecommendFragment extends android.support.v4.app.Fragment {
-    @Nullable
+public class RecommendFragment extends BaseFragment {
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    protected View getSuccessView() {
         View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_item,
-                container, false);
+                null, false);
         return view;
+    }
+
+    @Override
+    protected void requestData() {
+
     }
 }

@@ -6,7 +6,7 @@ public class LogUtil {
 	private static boolean isDebug = true;//
 	public static void i(String tag,String msg){
 		if(isDebug){
-			Log.i(tag, msg);
+			Log.i("---00 "+tag, msg);
 		}
 	}
 	public static void i(Object obj,String msg){

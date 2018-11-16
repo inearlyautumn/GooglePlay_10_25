@@ -19,7 +19,7 @@ public class MainaPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int i) {
-        return FragmentFactory.create(i);
+        return FragmentFactory.createFragment(i);
     }
 
     @Override

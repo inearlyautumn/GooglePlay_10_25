@@ -12,6 +12,7 @@ import com.example.googleplay_10_25.holder.HomePictureHolder;
 import com.example.googleplay_10_25.http.api.GooglePalyApi;
 import com.example.googleplay_10_25.http.callback.ACallback;
 import com.example.googleplay_10_25.http.subscriber.ApiCallbackSubscriber;
+import com.example.googleplay_10_25.tools.LogUtil;
 import com.example.googleplay_10_25.tools.ToastUtil;
 import com.example.googleplay_10_25.tools.UiUtils;
 import com.example.googleplay_10_25.view.BaseListView;
@@ -25,6 +26,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
 public class HomeFragment extends BaseFragment {
+    public static final String TAG = HomeFragment.class.getSimpleName();
+
     private List<AppInfo> datas;
     private List<String> pictures; // 顶部ViewPager 显示界面的数据
 
@@ -77,6 +80,7 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     protected void requestData() {
+        LogUtil.i(TAG,"requestData");
         //这里请求网络数据
         Observable<Home> observable = GooglePalyApi.getInstance().getHomeData("0");
         observable
