@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item android:icon="@drawable/ic_home"
+            android:title="首页"/>
+        <item android:icon="@drawable/ic_setting"
+            android:title="设置"/>
+        <item android:icon="@drawable/ic_theme"
+            android:title="主题"/>
+        <item android:icon="@drawable/ic_scans"
+            android:title="安装包管理"/>
+        <item android:icon="@drawable/ic_feedback"
+            android:title="反馈"/>
+        <item android:icon="@drawable/ic_updates"
+            android:title="检查更新"/>
+        <item android:icon="@drawable/ic_about"
+            android:title="关于"/>
+        <item android:icon="@drawable/ic_exit"
+            android:title="退出"/>
+    </group>
+</menu>
