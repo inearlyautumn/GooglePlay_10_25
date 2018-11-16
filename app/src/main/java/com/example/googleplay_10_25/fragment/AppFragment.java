@@ -32,7 +32,7 @@ public class AppFragment extends BaseFragment {
         listView.setAdapter(new ListBaseAdapter(datas, listView) {
             @Override
             protected void onLoad() {
-                Observable<List<AppInfo>> observable = GooglePalyApi.getInstance().getAppData("0");
+                Observable<List<AppInfo>> observable = GooglePalyApi.getInstance().getAppData(datas.size());
                 observable
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
@@ -55,7 +55,7 @@ public class AppFragment extends BaseFragment {
 
     @Override
     protected void requestData() {
-        Observable<List<AppInfo>> observable = GooglePalyApi.getInstance().getAppData("0");
+        Observable<List<AppInfo>> observable = GooglePalyApi.getInstance().getAppData(0);
         observable
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

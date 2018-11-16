@@ -49,7 +49,7 @@ public class HomeFragment extends BaseFragment {
             @Override
             protected void onLoad() {
                 //这里返回网络请求的数据
-                Observable<Home> observable = GooglePalyApi.getInstance().getHomeData("0");
+                Observable<Home> observable = GooglePalyApi.getInstance().getHomeData(datas.size());
                 observable
                         .subscribeOn(Schedulers.io()) // 请求在新的线程执行
                         .observeOn(AndroidSchedulers.mainThread()) // 请求完成后在子线程中执行
@@ -82,7 +82,7 @@ public class HomeFragment extends BaseFragment {
     protected void requestData() {
         LogUtil.i(TAG,"requestData");
         //这里请求网络数据
-        Observable<Home> observable = GooglePalyApi.getInstance().getHomeData("0");
+        Observable<Home> observable = GooglePalyApi.getInstance().getHomeData(0);
         observable
                 .subscribeOn(Schedulers.io()) // 请求在新的线程执行
                 .observeOn(AndroidSchedulers.mainThread()) // 请求完成后在子线程中执行
