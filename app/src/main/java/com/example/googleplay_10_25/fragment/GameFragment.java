@@ -58,12 +58,14 @@ public class GameFragment extends BaseFragment {
                                     datas.addAll(appInfos);
                                 } catch (IOException e) {
                                     e.printStackTrace();
+                                }finally {
+                                    dealData(datas);
                                 }
                             }
 
                             @Override
                             public void onFail(int errCode, String errMsg) {
-                                ToastUtil.showLongToast("--- errCode = " + errCode + " errMsg = " + errMsg);
+                                dealData(datas);
                             }
                         }));
             }
@@ -87,7 +89,7 @@ public class GameFragment extends BaseFragment {
                             }.getType();
                             ArrayList<AppInfo> appInfos = gson.fromJson(string, type);
                             datas = appInfos;
-                            dealData(checkData(datas));
+                            dealData(datas);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -95,7 +97,7 @@ public class GameFragment extends BaseFragment {
 
                     @Override
                     public void onFail(int errCode, String errMsg) {
-                        ToastUtil.showLongToast("--- errCode = " + errCode + " errMsg = " + errMsg);
+                        dealData(datas);
                     }
                 }));
     }

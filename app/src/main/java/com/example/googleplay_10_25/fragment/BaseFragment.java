@@ -72,8 +72,8 @@ public abstract class BaseFragment extends Fragment {
         }
     }
 
-    protected void dealData(LoadingPage.LoadResult result) {
-        loadingPage.dealData(result);
+    protected void dealData(List datas) {
+        loadingPage.dealData(checkData(datas));
     }
 
     /**

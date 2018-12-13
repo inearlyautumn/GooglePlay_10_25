@@ -62,7 +62,7 @@ public class HomeFragment extends BaseFragment {
 
                             @Override
                             public void onFail(int errCode, String errMsg) {
-                                ToastUtil.showLongToast("--- errCode = " + errCode + " errMsg = " + errMsg);
+                                dealData(datas);
                             }
                         }));
             }
@@ -91,12 +91,12 @@ public class HomeFragment extends BaseFragment {
                     public void onSuccess(Home data) {
                         datas = data.getList();
                         pictures = data.getPicture();
-                        dealData(checkData(datas));
+                        dealData(datas);
                     }
 
                     @Override
                     public void onFail(int errCode, String errMsg) {
-                        ToastUtil.showLongToast("--- errCode = " + errCode + " errMsg = " + errMsg);
+                        dealData(datas);
                     }
                 }));
     }

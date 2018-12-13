@@ -45,7 +45,7 @@ public class AppFragment extends BaseFragment {
 
                             @Override
                             public void onFail(int errCode, String errMsg) {
-                                ToastUtil.showShortToast("errCode : "+errCode+" errMsg : "+errMsg);
+                                dealData(datas);
                             }
                         }));
             }
@@ -63,12 +63,12 @@ public class AppFragment extends BaseFragment {
                     @Override
                     public void onSuccess(List<AppInfo> data) {
                         datas = data;
-                        dealData(checkData(datas));
+                        dealData(datas);
                     }
 
                     @Override
                     public void onFail(int errCode, String errMsg) {
-                        ToastUtil.showShortToast("errCode : "+errCode+" errMsg : "+errMsg);
+                        dealData(datas);
                     }
                 }));
 
