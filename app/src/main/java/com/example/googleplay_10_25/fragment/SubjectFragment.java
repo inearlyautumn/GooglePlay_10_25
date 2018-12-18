@@ -1,6 +1,5 @@
 package com.example.googleplay_10_25.fragment;
 
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -11,7 +10,7 @@ import com.example.googleplay_10_25.adapter.DefaultAdapter;
 import com.example.googleplay_10_25.bean.Subject;
 import com.example.googleplay_10_25.holder.BaseHolder;
 import com.example.googleplay_10_25.http.api.GooglePalyApi;
-import com.example.googleplay_10_25.tools.UiUtils;
+import com.example.googleplay_10_25.utils.UiUtils;
 import com.example.googleplay_10_25.view.BaseListView;
 
 import java.util.List;

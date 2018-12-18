@@ -10,20 +10,17 @@ import com.example.googleplay_10_25.bean.AppInfo;
 import com.example.googleplay_10_25.bean.Home;
 import com.example.googleplay_10_25.holder.HomePictureHolder;
 import com.example.googleplay_10_25.http.api.GooglePalyApi;
-import com.example.googleplay_10_25.http.callback.ACallback;
-import com.example.googleplay_10_25.http.subscriber.ApiCallbackSubscriber;
-import com.example.googleplay_10_25.tools.LogUtil;
-import com.example.googleplay_10_25.tools.ToastUtil;
-import com.example.googleplay_10_25.tools.UiUtils;
+import com.example.googleplay_10_25.http.common.DefaultObserver;
+import com.example.googleplay_10_25.utils.LogUtil;
+import com.example.googleplay_10_25.utils.RxUtil;
+import com.example.googleplay_10_25.utils.UiUtils;
 import com.example.googleplay_10_25.view.BaseListView;
-import com.example.googleplay_10_25.view.LoadingPage;
 import com.lidroid.xutils.bitmap.PauseOnScrollListener;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
 
 public class HomeFragment extends BaseFragment {
     public static final String TAG = HomeFragment.class.getSimpleName();
@@ -49,22 +46,21 @@ public class HomeFragment extends BaseFragment {
             @Override
             protected void onLoad() {
                 //这里返回网络请求的数据
-                Observable<Home> observable = GooglePalyApi.getInstance().getHomeData(datas.size());
-                observable
-                        .subscribeOn(Schedulers.io()) // 请求在新的线程执行
-                        .observeOn(AndroidSchedulers.mainThread()) // 请求完成后在子线程中执行
-                        .subscribe(new ApiCallbackSubscriber<Home>(new ACallback<Home>() {
+                GooglePalyApi.getInstance()
+                        .getHomeData(datas.size())
+                        .compose(RxUtil.<Home>rxSchedulerHelper(HomeFragment.this))
+                        .subscribe(new DefaultObserver<Home>() {
                             @Override
-                            public void onSuccess(Home data) {
-                                datas.addAll(data.getList());
+                            protected void onSuccess(Home response) {
+                                datas.addAll(response.getList());
                                 onLoadData(datas);
                             }
 
                             @Override
-                            public void onFail(int errCode, String errMsg) {
+                            protected void onFinish() {
                                 dealData(datas);
                             }
-                        }));
+                        });
             }
         });
 
@@ -80,24 +76,23 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     protected void requestData() {
-        LogUtil.i(TAG,"requestData");
+        LogUtil.i(TAG, "requestData");
         //这里请求网络数据
-        Observable<Home> observable = GooglePalyApi.getInstance().getHomeData(0);
-        observable
-                .subscribeOn(Schedulers.io()) // 请求在新的线程执行
-                .observeOn(AndroidSchedulers.mainThread()) // 请求完成后在子线程中执行
-                .subscribe(new ApiCallbackSubscriber<Home>(new ACallback<Home>() {
+        GooglePalyApi.getInstance()
+                .getHomeData(0)
+                .compose(RxUtil.<Home>rxSchedulerHelper(this))
+                .subscribe(new DefaultObserver<Home>() {
                     @Override
-                    public void onSuccess(Home data) {
+                    protected void onSuccess(Home data) {
                         datas = data.getList();
                         pictures = data.getPicture();
                         dealData(datas);
                     }
 
                     @Override
-                    public void onFail(int errCode, String errMsg) {
+                    protected void onFinish() {
                         dealData(datas);
                     }
-                }));
+                });
     }
 }

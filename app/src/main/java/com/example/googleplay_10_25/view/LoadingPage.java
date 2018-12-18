@@ -4,13 +4,12 @@ import android.content.Context;
 import android.os.SystemClock;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 
 import com.example.googleplay_10_25.R;
 import com.example.googleplay_10_25.manager.ThreadManager;
-import com.example.googleplay_10_25.tools.UiUtils;
+import com.example.googleplay_10_25.utils.UiUtils;
 
 public abstract class LoadingPage extends FrameLayout {
     public static final int STATE_UNKOWN = 0;

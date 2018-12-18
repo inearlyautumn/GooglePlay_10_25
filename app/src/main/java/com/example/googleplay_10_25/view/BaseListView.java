@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.widget.ListView;
 
 import com.example.googleplay_10_25.R;
-import com.example.googleplay_10_25.tools.UiUtils;
+import com.example.googleplay_10_25.utils.UiUtils;
 
 /**
  * @Description:

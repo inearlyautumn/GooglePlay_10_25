@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.example.googleplay_10_25.R;
 import com.example.googleplay_10_25.fragment.FragmentFactory;
-import com.example.googleplay_10_25.tools.UiUtils;
+import com.example.googleplay_10_25.utils.UiUtils;
 
 public class MainaPagerAdapter extends FragmentPagerAdapter {
     private String[] tabs;

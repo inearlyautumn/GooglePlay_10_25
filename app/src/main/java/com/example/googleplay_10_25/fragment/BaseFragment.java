@@ -8,15 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.googleplay_10_25.tools.BitmapHelper;
-import com.example.googleplay_10_25.tools.CommonUtil;
-import com.example.googleplay_10_25.tools.UiUtils;
+import com.example.googleplay_10_25.utils.BitmapHelper;
+import com.example.googleplay_10_25.utils.CommonUtil;
 import com.example.googleplay_10_25.view.LoadingPage;
 import com.lidroid.xutils.BitmapUtils;
+import com.trello.rxlifecycle2.components.support.RxFragment;
 
 import java.util.List;
 
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment extends RxFragment {
     protected LoadingPage loadingPage;
     protected BitmapUtils bitmapUtils;
 

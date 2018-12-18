@@ -2,7 +2,7 @@ package com.example.googleplay_10_25.holder;
 
 import android.view.View;
 
-import com.example.googleplay_10_25.tools.BitmapHelper;
+import com.example.googleplay_10_25.utils.BitmapHelper;
 import com.lidroid.xutils.BitmapUtils;
 
 public abstract class BaseHolder<T> {

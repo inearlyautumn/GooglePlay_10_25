@@ -11,7 +11,7 @@ import android.widget.ImageView;
 
 import com.example.googleplay_10_25.R;
 import com.example.googleplay_10_25.global.Constant;
-import com.example.googleplay_10_25.tools.UiUtils;
+import com.example.googleplay_10_25.utils.UiUtils;
 
 import java.util.LinkedList;
 import java.util.List;

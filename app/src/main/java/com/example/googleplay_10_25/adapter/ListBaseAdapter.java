@@ -1,15 +1,14 @@
 package com.example.googleplay_10_25.adapter;
 
 import android.content.Intent;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import com.example.googleplay_10_25.DetailActivity;
 import com.example.googleplay_10_25.bean.AppInfo;
 import com.example.googleplay_10_25.holder.BaseHolder;
 import com.example.googleplay_10_25.holder.ListBaseHolder;
-import com.example.googleplay_10_25.tools.ToastUtil;
-import com.example.googleplay_10_25.tools.UiUtils;
+import com.example.googleplay_10_25.utils.ToastUtil;
+import com.example.googleplay_10_25.utils.UiUtils;
 
 import java.util.List;
 

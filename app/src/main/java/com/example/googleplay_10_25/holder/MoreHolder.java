@@ -1,12 +1,11 @@
 package com.example.googleplay_10_25.holder;
 
-import android.view.HapticFeedbackConstants;
 import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.example.googleplay_10_25.R;
 import com.example.googleplay_10_25.adapter.DefaultAdapter;
-import com.example.googleplay_10_25.tools.UiUtils;
+import com.example.googleplay_10_25.utils.UiUtils;
 
 /**
  * @Description:

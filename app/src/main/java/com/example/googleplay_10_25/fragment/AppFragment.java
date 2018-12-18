@@ -5,10 +5,7 @@ import com.example.googleplay_10_25.adapter.ListBaseAdapter;
 import com.example.googleplay_10_25.bean.AppInfo;
 import com.example.googleplay_10_25.http.api.GooglePalyApi;
 import com.example.googleplay_10_25.http.callback.ACallback;
-import com.example.googleplay_10_25.http.subscriber.ApiCallbackSubscriber;
-import com.example.googleplay_10_25.tools.LogUtil;
-import com.example.googleplay_10_25.tools.ToastUtil;
-import com.example.googleplay_10_25.tools.UiUtils;
+import com.example.googleplay_10_25.utils.UiUtils;
 import com.example.googleplay_10_25.view.BaseListView;
 
 import java.util.List;
@@ -33,7 +30,7 @@ public class AppFragment extends BaseFragment {
             @Override
             protected void onLoad() {
                 Observable<List<AppInfo>> observable = GooglePalyApi.getInstance().getAppData(datas.size());
-                observable
+/*                observable
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(new ApiCallbackSubscriber<List<AppInfo>>(new ACallback<List<AppInfo>>() {
@@ -47,7 +44,7 @@ public class AppFragment extends BaseFragment {
                             public void onFail(int errCode, String errMsg) {
                                 dealData(datas);
                             }
-                        }));
+                        }));*/
             }
         });
         return listView;
@@ -56,7 +53,7 @@ public class AppFragment extends BaseFragment {
     @Override
     protected void requestData() {
         Observable<List<AppInfo>> observable = GooglePalyApi.getInstance().getAppData(0);
-        observable
+/*        observable
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new ApiCallbackSubscriber<List<AppInfo>>(new ACallback<List<AppInfo>>() {
@@ -70,7 +67,7 @@ public class AppFragment extends BaseFragment {
                     public void onFail(int errCode, String errMsg) {
                         dealData(datas);
                     }
-                }));
+                }));*/
 
     }
 }

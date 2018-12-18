@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.example.googleplay_10_25.R;
 import com.example.googleplay_10_25.bean.AppInfo;
 import com.example.googleplay_10_25.global.Constant;
-import com.example.googleplay_10_25.tools.UiUtils;
+import com.example.googleplay_10_25.utils.UiUtils;
 
 /**
  * @Description:

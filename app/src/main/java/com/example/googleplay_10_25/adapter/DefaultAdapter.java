@@ -10,7 +10,7 @@ import android.widget.ListView;
 import com.example.googleplay_10_25.holder.BaseHolder;
 import com.example.googleplay_10_25.holder.MoreHolder;
 import com.example.googleplay_10_25.manager.ThreadManager;
-import com.example.googleplay_10_25.tools.UiUtils;
+import com.example.googleplay_10_25.utils.UiUtils;
 
 import java.util.List;
 

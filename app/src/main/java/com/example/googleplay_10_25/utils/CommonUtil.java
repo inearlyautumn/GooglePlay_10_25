@@ -1,4 +1,4 @@
-package com.example.googleplay_10_25.tools;
+package com.example.googleplay_10_25.utils;
 
 import android.view.View;
 import android.view.ViewGroup;

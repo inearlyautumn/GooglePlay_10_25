@@ -1,6 +1,8 @@
-package com.example.googleplay_10_25.tools;
+package com.example.googleplay_10_25.utils;
 
 import android.widget.Toast;
+
+import com.example.googleplay_10_25.R;
 
 
 /**
@@ -47,6 +49,18 @@ public class ToastUtil {
             UiUtils.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
+                    Toast.makeText(UiUtils.getContext(), text, Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+    }
+
+    public static void showShortToast(final int resId) {
+        if (isDebug) {
+            UiUtils.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    String text = UiUtils.getResource().getString(resId);
                     Toast.makeText(UiUtils.getContext(), text, Toast.LENGTH_SHORT).show();
                 }
             });
